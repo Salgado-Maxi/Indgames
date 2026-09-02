@@ -1,1 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indgame - Detalles del Producto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #5A82B0;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- Navbar --- */
+    .navbar {
+      background-color: #2D4156;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      background-color: #F4EFEA;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      width: 60%;
+      max-width: 250px;
+      outline: none;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 20px;
+    }
+
+    .navbar-right i {
+      cursor: pointer;
+    }
+
+    /* --- Main Layout --- */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .product-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    /* --- Placeholder Imagen Principal --- */
+    .image-placeholder {
+      background-color: #ffffff;
+      border: 2px solid #000;
+      aspect-ratio: 3 / 4;
+      position: relative;
+      width: 100%;
+    }
+
+    .image-placeholder::before,
+    .image-placeholder::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #000;
+    }
+
+    .image-placeholder::before {
+      left: 50%;
+      transform: rotate(38deg) scaleY(1.3);
+    }
+
+    .image-placeholder::after {
+      left: 50%;
+      transform: rotate(-38deg) scaleY(1.3);
+    }
+
+    /* --- Columna Derecha --- */
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .category-bar {
+      background-color: #2D4156;
+      height: 12px;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .price-card {
+      border: 3px solid #ffffff;
+      border-radius: 30px;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dashed-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 75%;
+    }
+
+    .line {
+      border-top: 2px dashed #000;
+      width: 100%;
+    }
+
+    .buy-btn {
+      background-color: #2D4156;
+      border: 2px solid #ffffff;
+      border-radius: 20px;
+      padding: 8px 0;
+      width: 40%;
+      margin: 0 auto;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .description-card {
+      background-color: #2D4156;
+      border: 3px solid #ffffff;
+      border-radius: 30px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .description-card .line {
+      border-top: 2px dashed #000;
+    }
+
+    /* --- Galería / Miniaturas --- */
+    .thumbnails-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .thumb-placeholder {
+      background-color: #ffffff;
+      border: 2px solid #000;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thumb-placeholder::before,
+    .thumb-placeholder::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #000;
+    }
+
+    .thumb-placeholder::before {
+      left: 50%;
+      transform: rotate(62deg) scaleY(1.5);
+    }
+
+    .thumb-placeholder::after {
+      left: 50%;
+      transform: rotate(-62deg) scaleY(1.5);
+    }
+
+    /* --- Sección Inferior (Reseñas / Info) --- */
+    .info-card {
+      border: 4px solid #2D4156;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: #2D4156;
+      height: 60px;
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      .product-main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-left">
+      <i class="fa-solid fa-bars menu-icon"></i>
+      <input type="text" class="search-bar" placeholder="Buscar...">
+    </div>
+    <div class="navbar-right">
+      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-cart-shopping"></i>
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="product-main">
+      <div class="image-placeholder"></div>
+
+      <section class="product-details">
+        <div class="category-bar"></div>
+        
+        <div class="price-card">
+          <div class="dashed-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <i class="fa-solid fa-cart-shopping" style="color: #000; font-size: 18px;"></i>
+        </div>
+
+        <button class="buy-btn">
+          <div class="line" style="border-color: #fff; width: 60%; margin: 0 auto;"></div>
+        </button>
+
+        <div class="description-card">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </section>
+    </main>
+
+    <section class="thumbnails-grid">
+      <div class="thumb-placeholder"></div>
+      <div class="thumb-placeholder"></div>
+      <div class="thumb-placeholder"></div>
+    </section>
+
+    <section class="info-card">
+      <div class="line"></div>
+      <div class="line"></div>
+    </section>
+  </div>
+
+  <footer></footer>
+
+</body>
+</html>
