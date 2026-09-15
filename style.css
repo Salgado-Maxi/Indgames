@@ -93,4 +93,13 @@ button {
 button:hover {
     background-color: #0369a1;
   }
+footer {
+    background-color: #38bdf8; /* Opción Celeste (mismo tono del logo) */
+    color: #0f172a;            /* Texto oscuro para que resalte */
+    text-align: center;
+    padding: 1.5rem 2rem;      /* Define el alto y grosor del rectángulo */
+    margin-top: 3rem;          /* Separa el footer del catálogo de productos */
+    font-weight: bold;
+}
+
 
