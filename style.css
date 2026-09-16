@@ -16,6 +16,10 @@ header {
     align-items: center;
     padding: 1rem 2rem;
     background-color: #1e293b;
+     /* PROPIEDADES PARA FIJAR LA BARRA */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
